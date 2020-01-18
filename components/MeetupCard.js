@@ -32,6 +32,7 @@ const GuestSpeaker = ({ speaker }) => {
         </Text>
         <Text fontSize={{ base: '1.2rem' }}>{speaker.fullName}</Text>
       </Flex>
+      <Text>{speaker.bio}</Text>
     </Flex>
   );
 };
@@ -95,8 +96,8 @@ const MeetupLocation = ({ location }) => {
           <Text>{fullAddress}</Text>
         </Link>
       ) : (
-        <Text>TBD</Text>
-      )}
+          <Text>TBD</Text>
+        )}
 
       {extraDetails ? <Text color="gray.600">{extraDetails}</Text> : null}
     </Box>
@@ -166,3 +167,4 @@ const MeetupCard = ({ nextMeetup }) => {
 };
 
 export { MeetupCard };
+
