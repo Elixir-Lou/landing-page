@@ -9,7 +9,7 @@ export const meetups = [
     timezone: 'EST',
     title: 'Tests - Friend or Foe?',
     description:
-      'Tests friend or foe? Chain or Cable? Are tests helping or hurting your abliity to code? Why progress slows with complexity and how to improve your Elixir unit testing.',
+      'Tests friend or foe? Chain or Cable? Are tests helping or hurting your ability to code? Why progress slows with complexity and how to improve your Elixir unit testing.',
     // links: ["slides.com"]
     links: null,
     location: {
