@@ -32,7 +32,7 @@ const GuestSpeaker = ({ speaker }) => {
         </Text>
         <Text fontSize={{ base: '1.2rem' }}>{speaker.fullName}</Text>
       </Flex>
-      <Text>{speaker.bio}</Text>
+      <SocialIcons speaker={speaker} />
     </Flex>
   );
 };
@@ -96,8 +96,8 @@ const MeetupLocation = ({ location }) => {
           <Text>{fullAddress}</Text>
         </Link>
       ) : (
-          <Text>TBD</Text>
-        )}
+        <Text>TBD</Text>
+      )}
 
       {extraDetails ? <Text color="gray.600">{extraDetails}</Text> : null}
     </Box>
@@ -111,39 +111,52 @@ const SocialIcons = ({ speaker }) => (
     flexDirection={{ base: 'column', md: 'row' }}
     justifyContent={{ base: 'center', md: 'space-around' }}
     alignItems={{ base: 'center' }}>
-    <Link
-      display="flex"
-      my={{ base: 1, md: 0 }}
-      href={`https://twitter.com/${speaker.twitter}`}>
-      <Image
-        backgroundSize="100%"
-        w={{ base: '25px' }}
-        h={{ base: '25px' }}
-        src={twitterIcon}
-        alt="@Twitter"
-      />
-      <Text color="purple.500" ml={{ base: 2 }}>
-        @{speaker.twitter}
-      </Text>
-    </Link>
+    {speaker.twitter && (
+      <Link
+        display="flex"
+        my={{ base: 1, md: 0 }}
+        href={`https://twitter.com/${speaker.twitter}`}>
+        <Image
+          backgroundSize="100%"
+          w={{ base: '25px' }}
+          h={{ base: '25px' }}
+          src={twitterIcon}
+          alt="@Twitter"
+        />
+        <Text color="teal.600" ml={{ base: 2 }}>
+          @{speaker.twitter}
+        </Text>
+      </Link>
+    )}
 
-    <Link
-      display="flex"
-      my={{ base: 1, md: 0 }}
-      href={`https://github.com/${speaker.github}`}>
-      <Image
-        backgroundSize="100%"
-        w={{ base: '25px' }}
-        h={{ base: '25px' }}
-        src={githubIcon}
-        alt="@GitHub"
-      />
-      <Text color="purple.500" ml={{ base: 2 }}>
-        @{speaker.github}
-      </Text>
-    </Link>
+    {speaker.github && (
+      <Link
+        display="flex"
+        my={{ base: 1, md: 0 }}
+        href={`https://github.com/${speaker.github}`}>
+        <Image
+          backgroundSize="100%"
+          w={{ base: '25px' }}
+          h={{ base: '25px' }}
+          src={githubIcon}
+          alt="@GitHub"
+        />
+        <Text color="teal.600" ml={{ base: 2 }}>
+          @{speaker.github}
+        </Text>
+      </Link>
+    )}
   </Flex>
 );
+
+const Rsvp = ({ link }) =>
+  link ? (
+    <Flex justifyContent="center">
+      <Link href={link} isExternal fontWeight="bold" color="teal.400">
+        RSVP on meetup here!
+      </Link>
+    </Flex>
+  ) : null;
 
 const MeetupCard = ({ nextMeetup }) => {
   return (
@@ -156,15 +169,18 @@ const MeetupCard = ({ nextMeetup }) => {
       borderRadius={{ base: '20px' }}
       color="black">
       <GuestSpeaker speaker={nextMeetup.speaker} />
-      <Title title={nextMeetup.title} />
       <DateTime nextMeetup={nextMeetup} />
+      <Title title={nextMeetup.title} />
       <Text>{nextMeetup.description}</Text>
+      <Rsvp link={nextMeetup.meetupLink} />
       <MeetupLinks links={nextMeetup.links} />
       <MeetupLocation location={nextMeetup.location} />
-      <SocialIcons speaker={nextMeetup.speaker} />
+      <Text as="em" mt={4}>
+        *After Mark's talk we will continue to chat over food at a nearby
+        location. <br /> Hope to see you there!
+      </Text>
     </Flex>
   );
 };
 
 export { MeetupCard };
-

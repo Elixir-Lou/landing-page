@@ -13,11 +13,12 @@ export const meetups = [
     // links: ["slides.com"]
     links: null,
     location: {
-      addressLink: 'https://goo.gl/maps/1TgWZxt9qCVmYjhg9',
+      addressLink: 'http://warpzonelouisville.com/#newlocation',
       // extraDetails: 'TODO: Building / Parking info',
-      fullAddress: '700 E Market St, Louisville, KY 40202',
-      name: 'Garage Bar',
+      fullAddress: '627 West Washington St., Louisville, KY 40202',
+      name: 'Warp Zone',
     },
+    meetupLink: null,
     speaker: {
       firstName: 'Mark',
       lastName: 'Windholtz',
