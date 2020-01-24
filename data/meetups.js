@@ -18,7 +18,7 @@ export const meetups = [
       fullAddress: '627 West Washington St., Louisville, KY 40202',
       name: 'Warp Zone',
     },
-    meetupLink: null,
+    meetupLink: 'https://www.meetup.com/Elixir-Louisville/events/268174034/',
     speaker: {
       firstName: 'Mark',
       lastName: 'Windholtz',
