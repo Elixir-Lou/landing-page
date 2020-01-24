@@ -176,8 +176,9 @@ const MeetupCard = ({ nextMeetup }) => {
       <MeetupLinks links={nextMeetup.links} />
       <MeetupLocation location={nextMeetup.location} />
       <Text as="em" mt={4}>
-        *After Mark's talk we will continue to chat over food at a nearby
-        location. <br /> Hope to see you there!
+        *After Mark's talk, we will continue to chat over food at a nearby
+        location.
+        <br /> Hope to see you there!
       </Text>
     </Flex>
   );
